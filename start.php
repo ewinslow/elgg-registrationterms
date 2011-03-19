@@ -1,28 +1,19 @@
 <?php
-/*******************************************************************************
- * registrationterms
- *
- * @author Administrator
- ******************************************************************************/
 
-	function registrationterms_init()
-	{
-		global $CONFIG;
+function registrationterms_init() {
+	//put the terms agreement at the very end
+	elgg_extend_view('register/extend', 'registrationterms/register', 1000);
 
-		//put the terms agreement at the very end
-		extend_view('register/extend', 'registrationterms/register', 1000);
-		
-		//block user registration if they don't check the box
-		register_plugin_hook('action', 'register', 'registrationterms_register_hook');
+	//block user registration if they don't check the box
+	elgg_register_plugin_hook_handler('action', 'register', 'registrationterms_register_hook');
+}
+
+function registrationterms_register_hook() {
+	if (get_input('agreetoterms', false) != 'true') {
+		register_error(elgg_echo('registrationterms:required'));
+		forward(REFERER);
 	}
-	
-	function registrationterms_register_hook()
-	{
-		if (get_input('agreetoterms',false) != 'true') {
-			register_error(elgg_echo('agreetoterms:required'));
-			forward($_SERVER['HTTP_REFERER']);
-		}
-	}
-	
-	register_elgg_event_handler('init', 'system', 'registrationterms_init');
+}
+
+elgg_register_elgg_event_handler('init', 'system', 'registrationterms_init');
 ?>
