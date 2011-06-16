@@ -15,5 +15,11 @@
 		<type>elgg_version</type>
 		<version>2011031401</version>
 	</requires>
+	
+	<screenshot>
+		<description>Checkbox appears in registration form.</description>
+		<path>screenshots/register-form.png</path>
+	</screenshot>
+	
 	<admin_interface>simple</admin_interface>
 </plugin_manifest>
