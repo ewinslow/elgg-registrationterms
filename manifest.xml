@@ -4,7 +4,7 @@
     <author>Evan Winslow</author>
     <version>1.1</version>
     <description>Force users to check a box saying they agree to the site's terms before they are allowed to register</description>
-    <website>http://www.facebook.com/evanwinslow</website>
+    <website>http://github.com/ewinslow/elgg-registrationterms</website>
     <copyright>(C) Evan Winslow 2010</copyright>
     <license>GNU Public License version 2</license>
     <requires>
