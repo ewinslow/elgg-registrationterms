@@ -15,5 +15,4 @@ function registrationterms_register_hook() {
 	}
 }
 
-elgg_register_elgg_event_handler('init', 'system', 'registrationterms_init');
-?>
+elgg_register_event_handler('init', 'system', 'registrationterms_init');
